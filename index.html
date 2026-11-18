@@ -17,10 +17,13 @@
     }
     .galerij {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 24px;
-      max-width: 1000px;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 32px;
+      max-width: 1300px;
       margin: 0 auto;
+    }
+    .item {
+      text-align: center;
     }
     .kaart {
       perspective: 1000px;
@@ -49,6 +52,11 @@
     .kaart .back {
       transform: rotateY(180deg);
     }
+    .naam {
+      margin-top: 12px;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -56,32 +64,44 @@
   <p>Click on a card to flip it</p>
 
   <div class="galerij">
-    <div class="kaart">
-      <div class="kaart-binnen">
-        <img class="front" src="photos-pokemon/salamence-front.jpeg" alt="Salamence card front">
-        <img class="back" src="photos-pokemon/salamence-back.jpeg" alt="Salamence card back">
+    <div class="item">
+      <div class="kaart">
+        <div class="kaart-binnen">
+          <img class="front" src="photos-pokemon/salamence-front.jpeg" alt="Salamence card front">
+          <img class="back" src="photos-pokemon/salamence-back.jpeg" alt="Salamence card back">
+        </div>
       </div>
+      <div class="naam">Salamence</div>
     </div>
 
-    <div class="kaart">
-      <div class="kaart-binnen">
-        <img class="front" src="photos-pokemon/claydol-front.jpeg" alt="Claydol card front">
-        <img class="back" src="photos-pokemon/claydol-back.jpeg" alt="Claydol card back">
+    <div class="item">
+      <div class="kaart">
+        <div class="kaart-binnen">
+          <img class="front" src="photos-pokemon/claydol-front.jpeg" alt="Claydol card front">
+          <img class="back" src="photos-pokemon/claydol-back.jpeg" alt="Claydol card back">
+        </div>
       </div>
+      <div class="naam">Claydol</div>
     </div>
 
-    <div class="kaart">
-      <div class="kaart-binnen">
-        <img class="front" src="photos-pokemon/flygon-front.jpeg" alt="Flygon card front">
-        <img class="back" src="photos-pokemon/flygon-back.jpeg" alt="Flygon card back">
+    <div class="item">
+      <div class="kaart">
+        <div class="kaart-binnen">
+          <img class="front" src="photos-pokemon/flygon-front.jpeg" alt="Flygon card front">
+          <img class="back" src="photos-pokemon/flygon-back.jpeg" alt="Flygon card back">
+        </div>
       </div>
+      <div class="naam">Flygon</div>
     </div>
 
-    <div class="kaart">
-      <div class="kaart-binnen">
-        <img class="front" src="photos-pokemon/vaporeon-front.jpeg" alt="Vaporeon card front">
-        <img class="back" src="photos-pokemon/vaporeon-back.jpeg" alt="Vaporeon card back">
+    <div class="item">
+      <div class="kaart">
+        <div class="kaart-binnen">
+          <img class="front" src="photos-pokemon/vaporeon-front.jpeg" alt="Vaporeon card front">
+          <img class="back" src="photos-pokemon/vaporeon-back.jpeg" alt="Vaporeon card back">
+        </div>
       </div>
+      <div class="naam">Vaporeon</div>
     </div>
   </div>
 
