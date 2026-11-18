@@ -28,6 +28,7 @@
     .kaart {
       perspective: 1000px;
       cursor: pointer;
+      width: 100%;
       aspect-ratio: 63 / 88;
     }
     .kaart-binnen {
@@ -36,6 +37,7 @@
       height: 100%;
       transition: transform 0.6s;
       transform-style: preserve-3d;
+      transform-origin: center center;
     }
     .kaart.omgedraaid .kaart-binnen {
       transform: rotateY(180deg);
