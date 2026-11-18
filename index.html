@@ -4,8 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mijn website</title>
+  <style>
+  .galerij {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+  }
+  .galerij img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+</style>
 </head>
 <body>
   <p>Hallo dit is mn website</p>
+
+<div class="galerij">
+  <img src="photos-pokemon/mewtwo.png" alt="Pikachu">
+</div>
 </body>
 </html>
