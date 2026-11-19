@@ -1,119 +1,102 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My website</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      margin: 0;
-      padding: 20px;
-      background: #1e1e2e;
-      color: #fff;
-    }
-    h1, p {
-      text-align: center;
-    }
-    .galerij {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 32px;
-      max-width: 1300px;
-      margin: 0 auto;
-    }
-    .item {
-      text-align: center;
-    }
-    .kaart {
-      perspective: 1000px;
-      cursor: pointer;
-      width: 100%;
-      aspect-ratio: 63 / 88;
-    }
-    .kaart-binnen {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      transition: transform 0.6s;
-      transform-style: preserve-3d;
-      transform-origin: 50% 50%;
-    }
-    .kaart.omgedraaid .kaart-binnen {
-      transform: rotateY(180deg);
-    }
-    .kaart img {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
-      border-radius: 10px;
-      left: 0;
-    }
-    .kaart .back {
-      transform: rotateY(180deg);
-    }
-    .naam {
-      margin-top: 12px;
-      font-size: 1.2rem;
-      font-weight: bold;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pokémon Card Collection</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
 </head>
+
 <body>
-  <h1>Hello, this is my website</h1>
-  <p>Click on a card to flip it</p>
 
-  <div class="galerij">
-    <div class="item">
-      <div class="kaart">
-        <div class="kaart-binnen">
-          <img class="front" src="photos-pokemon/salamence-front.jpeg" alt="Salamence card front">
-          <img class="back" src="photos-pokemon/salamence-back.jpeg" alt="Salamence card back">
-        </div>
-      </div>
-      <div class="naam">Salamence</div>
-    </div>
+    <main class="container">
 
-    <div class="item">
-      <div class="kaart">
-        <div class="kaart-binnen">
-          <img class="front" src="photos-pokemon/claydol-front.jpeg" alt="Claydol card front">
-          <img class="back" src="photos-pokemon/claydol-back.jpeg" alt="Claydol card back">
-        </div>
-      </div>
-      <div class="naam">Claydol</div>
-    </div>
+        <header class="header">
+            <p class="eyebrow">MY PERSONAL COLLECTION</p>
+            <h1>Pokémon Cards</h1>
+            <p class="subtitle">
+                A collection of my favourite Pokémon cards.
+            </p>
+        </header>
 
-    <div class="item">
-      <div class="kaart">
-        <div class="kaart-binnen">
-          <img class="front" src="photos-pokemon/flygon-front.jpeg" alt="Flygon card front">
-          <img class="back" src="photos-pokemon/flygon-back.jpeg" alt="Flygon card back">
-        </div>
-      </div>
-      <div class="naam">Flygon</div>
-    </div>
+        <section class="gallery" aria-label="Pokémon card collection">
 
-    <div class="item">
-      <div class="kaart">
-        <div class="kaart-binnen">
-          <img class="front" src="photos-pokemon/vaporeon-front.jpeg" alt="Vaporeon card front">
-          <img class="back" src="photos-pokemon/vaporeon-back.jpeg" alt="Vaporeon card back">
-        </div>
-      </div>
-      <div class="naam">Vaporeon</div>
-    </div>
-  </div>
+            <div class="item">
+                <button class="kaart" type="button"
+                    aria-label="Flip Salamence card"
+                    aria-pressed="false">
+                    <span class="kaart-binnen">
+                        <img class="front"
+                            src="photos-pokemon/salamence-front.jpeg"
+                            alt="Salamence card front">
+                        <img class="back"
+                            src="photos-pokemon/salamence-back.jpeg"
+                            alt="Salamence card back">
+                    </span>
+                </button>
+                <h2 class="naam">Salamence</h2>
+            </div>
 
-  <script>
-    document.querySelectorAll('.kaart').forEach(function (kaart) {
-      kaart.addEventListener('click', function () {
-        kaart.classList.toggle('omgedraaid');
-      });
-    });
-  </script>
+            <div class="item">
+                <button class="kaart" type="button"
+                    aria-label="Flip Claydol card"
+                    aria-pressed="false">
+                    <span class="kaart-binnen">
+                        <img class="front"
+                            src="photos-pokemon/claydol-front.jpeg"
+                            alt="Claydol card front">
+                        <img class="back"
+                            src="photos-pokemon/claydol-back.jpeg"
+                            alt="Claydol card back">
+                    </span>
+                </button>
+                <h2 class="naam">Claydol</h2>
+            </div>
+
+            <div class="item">
+                <button class="kaart" type="button"
+                    aria-label="Flip Flygon card"
+                    aria-pressed="false">
+                    <span class="kaart-binnen">
+                        <img class="front"
+                            src="photos-pokemon/flygon-front.jpeg"
+                            alt="Flygon card front">
+                        <img class="back"
+                            src="photos-pokemon/flygon-back.jpeg"
+                            alt="Flygon card back">
+                    </span>
+                </button>
+                <h2 class="naam">Flygon</h2>
+            </div>
+
+            <div class="item">
+                <button class="kaart" type="button"
+                    aria-label="Flip Vaporeon card"
+                    aria-pressed="false">
+                    <span class="kaart-binnen">
+                        <img class="front"
+                            src="photos-pokemon/vaporeon-front.jpeg"
+                            alt="Vaporeon card front">
+                        <img class="back"
+                            src="photos-pokemon/vaporeon-back.jpeg"
+                            alt="Vaporeon card back">
+                    </span>
+                </button>
+                <h2 class="naam">Vaporeon</h2>
+            </div>
+
+        </section>
+
+        <footer class="footer">
+            <p>Made with passion for Pokémon.</p>
+        </footer>
+
+    </main>
+
 </body>
 </html>
