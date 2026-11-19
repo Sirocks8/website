@@ -1,0 +1,177 @@
+/* =========================
+   GENERAL
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 40px 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #11111b;
+    color: #f5f5f5;
+    min-height: 100vh;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    margin: 40px 0 60px;
+}
+
+.eyebrow {
+    color: #a78bfa;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    margin: 15px 0;
+    letter-spacing: -2px;
+}
+
+.subtitle {
+    color: #a1a1aa;
+    font-size: 1.1rem;
+}
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(220px, 1fr)
+    );
+    gap: 40px 30px;
+}
+
+.item {
+    text-align: center;
+    min-width: 0;
+}
+
+/* =========================
+   POKEMON CARDS
+========================= */
+
+.kaart {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: none;
+    background: transparent;
+    aspect-ratio: 63 / 88;
+    perspective: 1200px;
+    cursor: pointer;
+}
+
+.kaart-binnen {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.65s ease;
+}
+
+.kaart.omgedraaid .kaart-binnen {
+    transform: rotateY(180deg);
+}
+
+.kaart img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 12px;
+
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+
+    transition: filter 0.3s ease;
+}
+
+.kaart .back {
+    transform: rotateY(180deg);
+}
+
+/* Hover effect */
+
+.kaart:hover {
+    filter: drop-shadow(0 12px 20px rgba(139, 92, 246, 0.2));
+}
+
+.kaart:focus-visible {
+    outline: 3px solid #a78bfa;
+    outline-offset: 5px;
+    border-radius: 12px;
+}
+
+/* =========================
+   POKEMON NAME
+========================= */
+
+.naam {
+    margin-top: 16px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #e4e4e7;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    text-align: center;
+    color: #71717a;
+    font-size: 0.9rem;
+    margin-top: 80px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+    body {
+        padding: 20px 16px;
+    }
+
+    .header {
+        margin: 30px 0 40px;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 30px 16px;
+    }
+
+    .naam {
+        font-size: 1rem;
+    }
+}
+
+/* Reduced motion accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+    .kaart-binnen {
+        transition: none;
+    }
+}
