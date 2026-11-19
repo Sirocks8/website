@@ -22,17 +22,149 @@ const RAW_IMAGE_BASE =
 const gallery = document.getElementById("pokemon-gallery");
 const galleryCount = document.getElementById("gallery-count");
 const galleryStatus = document.getElementById("gallery-status");
+const searchInput = document.getElementById("pokemon-search");
 
 
 // ================================
-// FIND AND LOAD POKEMON
+// POKEMON DATA
+// ================================
+
+let allPokemon = [];
+
+
+// ================================
+// CREATE A POKEMON CARD
+// ================================
+
+function createPokemonCard(name, images) {
+
+    const displayName = name
+        .replace(/[-_]+/g, " ")
+        .replace(/\b\w/g, letter => letter.toUpperCase());
+
+    const cardItem = document.createElement("div");
+    cardItem.className = "item";
+
+    const button = document.createElement("button");
+    button.className = "kaart";
+    button.type = "button";
+    button.setAttribute(
+        "aria-label",
+        `Flip ${displayName} card`
+    );
+    button.setAttribute("aria-pressed", "false");
+
+    const inner = document.createElement("span");
+    inner.className = "kaart-binnen";
+
+    const front = document.createElement("img");
+    front.className = "front";
+    front.src = `${RAW_IMAGE_BASE}/${encodeURIComponent(images.front)}`;
+    front.alt = `${displayName} card front`;
+    front.loading = "lazy";
+
+    const back = document.createElement("img");
+    back.className = "back";
+    back.src = `${RAW_IMAGE_BASE}/${encodeURIComponent(images.back)}`;
+    back.alt = `${displayName} card back`;
+    back.loading = "lazy";
+
+    inner.append(front, back);
+    button.appendChild(inner);
+
+    // CARD FLIPPING
+
+    button.addEventListener("click", () => {
+
+        button.classList.toggle("omgedraaid");
+
+        const flipped =
+            button.classList.contains("omgedraaid");
+
+        button.setAttribute("aria-pressed", flipped);
+
+    });
+
+    const title = document.createElement("h2");
+    title.className = "naam";
+    title.textContent = displayName;
+
+    cardItem.append(button, title);
+
+    return cardItem;
+}
+
+
+// ================================
+// DISPLAY POKEMON
+// ================================
+
+function renderPokemon(searchTerm = "") {
+
+    const filteredPokemon = allPokemon.filter(([name]) =>
+        name.toLowerCase().includes(searchTerm.toLowerCase().trim())
+    );
+
+    gallery.innerHTML = "";
+
+    filteredPokemon.forEach(([name, images]) => {
+
+        const card = createPokemonCard(name, images);
+        gallery.appendChild(card);
+
+    });
+
+    // UPDATE COUNTER
+
+    if (searchTerm.trim() === "") {
+
+        galleryCount.textContent =
+            `${allPokemon.length} Pokémon in your collection`;
+
+    } else {
+
+        galleryCount.textContent =
+            `Showing ${filteredPokemon.length} of ${allPokemon.length} Pokémon`;
+
+    }
+
+    // NO RESULTS MESSAGE
+
+    if (filteredPokemon.length === 0) {
+
+        galleryStatus.textContent = searchTerm.trim()
+            ? `No Pokémon found matching "${searchTerm}".`
+            : "No complete Pokémon card pairs found.";
+
+    } else {
+
+        galleryStatus.textContent = "";
+
+    }
+
+}
+
+
+// ================================
+// SEARCH
+// ================================
+
+searchInput.addEventListener("input", () => {
+
+    renderPokemon(searchInput.value);
+
+});
+
+
+// ================================
+// LOAD POKEMON FROM GITHUB
 // ================================
 
 async function loadPokemon() {
 
     try {
 
-        galleryStatus.textContent = "Loading Pokémon...";
+        galleryStatus.textContent = "Loading collection...";
         galleryStatus.classList.remove("error");
 
         const response = await fetch(API_URL);
@@ -45,11 +177,9 @@ async function loadPokemon() {
 
         const files = await response.json();
 
-        // Supported image formats
-        const imageExtensions = ["jpg", "jpeg", "png", "webp"];
-
-        // Store matching front/back images
         const pokemon = new Map();
+
+        // FIND FRONT AND BACK IMAGES
 
         files.forEach(file => {
 
@@ -72,82 +202,20 @@ async function loadPokemon() {
 
         });
 
-        // Only keep Pokémon with BOTH images
-        const completePokemon = [...pokemon.entries()]
-            .filter(([name, images]) => images.front && images.back)
+        // KEEP ONLY COMPLETE PAIRS
+
+        allPokemon = [...pokemon.entries()]
+            .filter(([name, images]) =>
+                images.front && images.back
+            )
             .sort((a, b) => a[0].localeCompare(b[0]));
 
-        // Clear previous gallery
-        gallery.innerHTML = "";
+        // DISPLAY EVERYTHING
 
-        // Create the cards
-        completePokemon.forEach(([name, images]) => {
-
-            const displayName = name
-                .replace(/[-_]+/g, " ")
-                .replace(/\b\w/g, letter => letter.toUpperCase());
-
-            const cardItem = document.createElement("div");
-            cardItem.className = "item";
-
-            const button = document.createElement("button");
-            button.className = "kaart";
-            button.type = "button";
-            button.setAttribute("aria-label", `Flip ${displayName} card`);
-            button.setAttribute("aria-pressed", "false");
-
-            const inner = document.createElement("span");
-            inner.className = "kaart-binnen";
-
-            const front = document.createElement("img");
-            front.className = "front";
-            front.src = `${RAW_IMAGE_BASE}/${encodeURIComponent(images.front)}`;
-            front.alt = `${displayName} card front`;
-            front.loading = "lazy";
-
-            const back = document.createElement("img");
-            back.className = "back";
-            back.src = `${RAW_IMAGE_BASE}/${encodeURIComponent(images.back)}`;
-            back.alt = `${displayName} card back`;
-            back.loading = "lazy";
-
-            inner.append(front, back);
-            button.appendChild(inner);
-
-            // Flip card when clicked
-            button.addEventListener("click", () => {
-
-                button.classList.toggle("omgedraaid");
-
-                const flipped =
-                    button.classList.contains("omgedraaid");
-
-                button.setAttribute("aria-pressed", flipped);
-
-            });
-
-            const title = document.createElement("h2");
-            title.className = "naam";
-            title.textContent = displayName;
-
-            cardItem.append(button, title);
-            gallery.appendChild(cardItem);
-
-        });
-
-        // Update gallery information
-        galleryCount.textContent =
-            `${completePokemon.length} Pokémon`;
-
-        if (completePokemon.length === 0) {
-            galleryStatus.textContent =
-                "No complete Pokémon card pairs found.";
-        } else {
-            galleryStatus.textContent = "";
-        }
+        renderPokemon(searchInput.value);
 
         console.log(
-            `Successfully loaded ${completePokemon.length} Pokémon!`
+            `Successfully loaded ${allPokemon.length} Pokémon!`
         );
 
     } catch (error) {
