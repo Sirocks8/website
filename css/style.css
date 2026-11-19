@@ -10,7 +10,7 @@ body {
     margin: 0;
     padding: 40px 24px;
     font-family: Arial, Helvetica, sans-serif;
-    background: #11111b;
+    background: #202033;
     color: #f5f5f5;
     min-height: 100vh;
 }
@@ -217,3 +217,137 @@ h1 {
     display: none;
 }
 
+
+/* =========================
+   PREMIUM GALLERY
+========================= */
+
+.gallery-section {
+    margin-top: 60px;
+}
+
+.gallery-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.gallery-heading .eyebrow {
+    margin-bottom: 10px;
+}
+
+.gallery-heading h2 {
+    font-size: 1.8rem;
+    margin: 0 0 8px;
+    letter-spacing: -0.5px;
+}
+
+#gallery-count {
+    color: #9292a5;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* SEARCH BAR */
+
+.search-container {
+    position: relative;
+    max-width: 440px;
+    margin-bottom: 40px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 17px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: #9292a5;
+    pointer-events: none;
+}
+
+#pokemon-search {
+    width: 100%;
+    padding: 15px 18px 15px 48px;
+    background: #1b1b29;
+    border: 1px solid #303044;
+    border-radius: 12px;
+    color: #f5f5f5;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+#pokemon-search::placeholder {
+    color: #77778b;
+}
+
+#pokemon-search:focus {
+    border-color: #8b5cf6;
+}
+
+/* GALLERY GRID */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(220px, 1fr)
+    );
+    gap: 40px 30px;
+}
+
+/* NO HOVER EFFECTS */
+
+.kaart,
+.kaart img {
+    transition: none !important;
+}
+
+.kaart:hover {
+    filter: none !important;
+    transform: none !important;
+}
+
+/* CARD NAME */
+
+.naam {
+    color: #e4e4ed;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+/* STATUS */
+
+.gallery-status {
+    color: #9292a5;
+    text-align: center;
+    margin-top: 35px;
+}
+
+.gallery-status.error {
+    color: #f87171;
+}
+
+.gallery-status:empty {
+    display: none;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    .gallery-section {
+        margin-top: 40px;
+    }
+
+    .gallery-heading h2 {
+        font-size: 1.5rem;
+    }
+
+    .search-container {
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+}
