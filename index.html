@@ -24,73 +24,30 @@
             </p>
         </header>
 
-        <section class="gallery" aria-label="Pokémon card collection">
+  
+<section class="gallery-section">
 
-            <div class="item">
-                <button class="kaart" type="button"
-                    aria-label="Flip Salamence card"
-                    aria-pressed="false">
-                    <span class="kaart-binnen">
-                        <img class="front"
-                            src="photos-pokemon/salamence-front.jpeg"
-                            alt="Salamence card front">
-                        <img class="back"
-                            src="photos-pokemon/salamence-back.jpeg"
-                            alt="Salamence card back">
-                    </span>
-                </button>
-                <h2 class="naam">Salamence</h2>
-            </div>
+    <div class="gallery-heading">
+        <h2>My collection</h2>
+        <p id="gallery-count">Loading Pokémon...</p>
+    </div>
 
-            <div class="item">
-                <button class="kaart" type="button"
-                    aria-label="Flip Claydol card"
-                    aria-pressed="false">
-                    <span class="kaart-binnen">
-                        <img class="front"
-                            src="photos-pokemon/claydol-front.jpeg"
-                            alt="Claydol card front">
-                        <img class="back"
-                            src="photos-pokemon/claydol-back.jpeg"
-                            alt="Claydol card back">
-                    </span>
-                </button>
-                <h2 class="naam">Claydol</h2>
-            </div>
+    <div
+        class="gallery"
+        id="pokemon-gallery"
+        aria-label="Pokémon card collection"
+    >
+    </div>
 
-            <div class="item">
-                <button class="kaart" type="button"
-                    aria-label="Flip Flygon card"
-                    aria-pressed="false">
-                    <span class="kaart-binnen">
-                        <img class="front"
-                            src="photos-pokemon/flygon-front.jpeg"
-                            alt="Flygon card front">
-                        <img class="back"
-                            src="photos-pokemon/flygon-back.jpeg"
-                            alt="Flygon card back">
-                    </span>
-                </button>
-                <h2 class="naam">Flygon</h2>
-            </div>
+    <p
+        id="gallery-status"
+        class="gallery-status"
+        role="status"
+        aria-live="polite"
+    ></p>
 
-            <div class="item">
-                <button class="kaart" type="button"
-                    aria-label="Flip Vaporeon card"
-                    aria-pressed="false">
-                    <span class="kaart-binnen">
-                        <img class="front"
-                            src="photos-pokemon/vaporeon-front.jpeg"
-                            alt="Vaporeon card front">
-                        <img class="back"
-                            src="photos-pokemon/vaporeon-back.jpeg"
-                            alt="Vaporeon card back">
-                    </span>
-                </button>
-                <h2 class="naam">Vaporeon</h2>
-            </div>
+</section>
 
-        </section>
 
         <footer class="footer">
             <p>Made with passion for Pokémon.</p>
