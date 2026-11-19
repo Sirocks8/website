@@ -175,3 +175,45 @@ h1 {
         transition: none;
     }
 }
+
+
+/* =========================
+   DYNAMIC GALLERY
+========================= */
+
+.gallery-section {
+    margin-top: 50px;
+}
+
+.gallery-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.gallery-heading h2 {
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+#gallery-count {
+    color: #a1a1aa;
+    font-size: 0.9rem;
+}
+
+.gallery-status {
+    color: #a1a1aa;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.gallery-status.error {
+    color: #f87171;
+}
+
+.gallery-status:empty {
+    display: none;
+}
+
