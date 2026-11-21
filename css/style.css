@@ -592,3 +592,111 @@ h1 {
         font-size: 0.8rem;
     }
 }
+
+
+
+/* =========================
+   REPAIRS PAGE
+========================= */
+
+.repairs-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 24px;
+}
+
+.repairs-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.repairs-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+}
+
+.repairs-header p {
+    color: #aaa;
+    font-size: 1rem;
+}
+
+.repairs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px;
+}
+
+.repair-card {
+    background: #171717;
+    border: 1px solid #292929;
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.repair-card h2 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+}
+
+.repair-images {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.repair-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    aspect-ratio: 4 / 3;
+}
+
+.repair-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.repair-image span {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.repair-description {
+    color: #bbb;
+    line-height: 1.6;
+    margin-top: 20px;
+    min-height: 80px;
+}
+
+.repair-price {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #b58aff;
+    margin-top: 20px;
+}
+
+/* Mobile layout */
+
+@media (max-width: 700px) {
+    .repairs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .repairs-section {
+        padding: 40px 18px;
+    }
+
+    .repairs-header h1 {
+        font-size: 2rem;
+    }
+}
