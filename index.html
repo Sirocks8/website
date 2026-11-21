@@ -6,63 +6,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Pokémon Card Collection</title>
+    <title>Welcome | Pokémon Cards & Repairs</title>
 
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/main.js" defer></script>
 </head>
 
-<body>
+<body class="home-page">
 
-    <main class="container">
+    <main class="home-container">
 
-        <header class="header">
-            <p class="eyebrow">MY PERSONAL COLLECTION</p>
+        <header class="home-header">
+            <p class="eyebrow">WELCOME</p>
+
             <h1>Pokémon Cards</h1>
-            <p class="subtitle">
-                Pokémon cards for sale!
+
+            <p class="home-subtitle">
+                Your destination for Pokémon cards and repairs.
             </p>
         </header>
 
-  
+        <section class="home-options">
 
-<section class="gallery-section">
+            <a href="collection.html" class="home-card">
+                <div class="home-card-content">
+                    <span class="home-card-label">EXPLORE</span>
+                    <h2>Collection</h2>
+                    <p>
+                        Discover the Pokémon cards available for sale.
+                    </p>
+                    <span class="home-card-link">
+                        View collection <span>→</span>
+                    </span>
+                </div>
+            </a>
 
-    <div class="gallery-heading">
-        <div>
-            <p class="eyebrow">THE COLLECTION</p>
-            <h2>My Pokémon</h2>
-            <p id="gallery-count">Loading collection...</p>
-        </div>
-    </div>
+            <a href="repairs.html" class="home-card">
+                <div class="home-card-content">
+                    <span class="home-card-label">SERVICES</span>
+                    <h2>Repairs</h2>
+                    <p>
+                        Learn more about Pokémon card repair services.
+                    </p>
+                    <span class="home-card-link">
+                        Explore repairs <span>→</span>
+                    </span>
+                </div>
+            </a>
 
-    <div class="search-container">
-        <span class="search-icon">⌕</span>
-        <input
-            type="search"
-            id="pokemon-search"
-            placeholder="Search your collection..."
-            aria-label="Search Pokémon"
-            autocomplete="off"
-        >
-    </div>
+        </section>
 
-    <div
-        class="gallery"
-        id="pokemon-gallery"
-        aria-label="Pokémon card collection"
-    >
-    </div>
-
-    <p
-        id="gallery-status"
-        class="gallery-status"
-        role="status"
-        aria-live="polite"
-    ></p>
-
-</section>
-
+        <footer class="home-footer">
+            Pokémon Cards & Repairs
+        </footer>
 
     </main>
 

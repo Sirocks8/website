@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pokémon Card Collection | Cars Shop</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <header class="header">
+            <p class="eyebrow">MY PERSONAL COLLECTION</p>
+            <h1>Pokémon Cards</h1>
+            <p class="subtitle">
+                Pokémon cards for sale!
+            </p>
+        </header>
+
+  
+
+<section class="gallery-section">
+
+    <div class="gallery-heading">
+        <div>
+            <p class="eyebrow">THE COLLECTION</p>
+            <h2>My Pokémon</h2>
+            <p id="gallery-count">Loading collection...</p>
+        </div>
+    </div>
+
+    <div class="search-container">
+        <span class="search-icon">⌕</span>
+        <input
+            type="search"
+            id="pokemon-search"
+            placeholder="Search your collection..."
+            aria-label="Search Pokémon"
+            autocomplete="off"
+        >
+    </div>
+
+    <div
+        class="gallery"
+        id="pokemon-gallery"
+        aria-label="Pokémon card collection"
+    >
+    </div>
+
+    <p
+        id="gallery-status"
+        class="gallery-status"
+        role="status"
+        aria-live="polite"
+    ></p>
+
+</section>
+
+
+    </main>
+
+</body>
+</html>

@@ -351,3 +351,185 @@ h1 {
         margin-bottom: 30px;
     }
 }
+ 
+
+
+/* =========================
+   HOMEPAGE
+========================= */
+
+.home-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 24px;
+}
+
+.home-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.home-header {
+    text-align: center;
+    margin-bottom: 65px;
+}
+
+.home-header h1 {
+    font-size: clamp(2.8rem, 7vw, 5rem);
+    margin: 15px 0;
+    letter-spacing: -3px;
+}
+
+.home-subtitle {
+    color: #a1a1aa;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.home-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.home-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 300px;
+    padding: 45px;
+    overflow: hidden;
+
+    text-decoration: none;
+    color: #f5f5f5;
+
+    background: linear-gradient(
+        145deg,
+        #292940,
+        #1b1b29
+    );
+
+    border: 1px solid #38384e;
+    border-radius: 20px;
+
+    transition: border-color 0.25s ease;
+}
+
+
+.home-card-content {
+    position: relative;
+    z-index: 1;
+}
+
+.home-card-label {
+    color: #a78bfa;
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.home-card h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin: 18px 0 12px;
+    letter-spacing: -1px;
+}
+
+.home-card p {
+    color: #a1a1aa;
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 340px;
+    margin-bottom: 30px;
+}
+
+.home-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: #c4b5fd;
+    font-weight: 600;
+}
+
+.home-card-link span {
+    font-size: 1.3rem;
+}
+
+.home-footer {
+    margin-top: 65px;
+    text-align: center;
+    color: #71717a;
+    font-size: 0.85rem;
+}
+
+/* HOMEPAGE MOBILE */
+
+@media (max-width: 650px) {
+
+    .home-page {
+        padding: 40px 20px;
+    }
+
+    .home-header {
+        margin-bottom: 40px;
+    }
+
+    .home-header h1 {
+        letter-spacing: -2px;
+    }
+
+    .home-options {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .home-card {
+        min-height: 230px;
+        padding: 30px;
+    }
+
+    .home-footer {
+        margin-top: 40px;
+    }
+}
+
+
+/* =========================
+   REPAIRS PAGE
+========================= */
+
+.repairs-content {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 45px;
+    text-align: center;
+    background: #1b1b29;
+    border: 1px solid #303044;
+    border-radius: 18px;
+}
+
+.repairs-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.repairs-content p {
+    color: #a1a1aa;
+    line-height: 1.7;
+}
+
+.back-home {
+    display: inline-block;
+    margin-top: 30px;
+    color: #c4b5fd;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+@media (max-width: 600px) {
+    .repairs-content {
+        padding: 30px 20px;
+    }
+}
