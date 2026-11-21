@@ -1,3 +1,4 @@
+
 /* =========================
    GENERAL
 ========================= */
@@ -53,10 +54,7 @@ h1 {
 
 .gallery {
     display: grid;
-    grid-template-columns: repeat(
-        auto-fill,
-        minmax(220px, 1fr)
-    );
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 40px 30px;
 }
 
@@ -100,18 +98,14 @@ h1 {
     height: 100%;
     object-fit: contain;
     border-radius: 12px;
-
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-
     transition: filter 0.3s ease;
 }
 
 .kaart .back {
     transform: rotateY(180deg);
 }
-
-/* Hover effect */
 
 .kaart:hover {
     filter: drop-shadow(0 12px 20px rgba(139, 92, 246, 0.2));
@@ -168,58 +162,14 @@ h1 {
     }
 }
 
-/* Reduced motion accessibility */
-
 @media (prefers-reduced-motion: reduce) {
     .kaart-binnen {
         transition: none;
     }
 }
 
-
 /* =========================
    DYNAMIC GALLERY
-========================= */
-
-.gallery-section {
-    margin-top: 50px;
-}
-
-.gallery-heading {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 30px;
-}
-
-.gallery-heading h2 {
-    font-size: 1.6rem;
-    margin: 0;
-}
-
-#gallery-count {
-    color: #a1a1aa;
-    font-size: 0.9rem;
-}
-
-.gallery-status {
-    color: #a1a1aa;
-    text-align: center;
-    margin-top: 30px;
-}
-
-.gallery-status.error {
-    color: #f87171;
-}
-
-.gallery-status:empty {
-    display: none;
-}
-
-
-/* =========================
-   PREMIUM GALLERY
 ========================= */
 
 .gallery-section {
@@ -230,6 +180,7 @@ h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 15px;
     margin-bottom: 25px;
 }
 
@@ -249,7 +200,23 @@ h1 {
     margin: 0;
 }
 
-/* SEARCH BAR */
+.gallery-status {
+    color: #9292a5;
+    text-align: center;
+    margin-top: 35px;
+}
+
+.gallery-status.error {
+    color: #f87171;
+}
+
+.gallery-status:empty {
+    display: none;
+}
+
+/* =========================
+   SEARCH BAR
+========================= */
 
 .search-container {
     position: relative;
@@ -291,10 +258,7 @@ h1 {
 
 .gallery {
     display: grid;
-    grid-template-columns: repeat(
-        auto-fill,
-        minmax(220px, 1fr)
-    );
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 40px 30px;
 }
 
@@ -319,23 +283,7 @@ h1 {
     margin-top: 15px;
 }
 
-/* STATUS */
-
-.gallery-status {
-    color: #9292a5;
-    text-align: center;
-    margin-top: 35px;
-}
-
-.gallery-status.error {
-    color: #f87171;
-}
-
-.gallery-status:empty {
-    display: none;
-}
-
-/* MOBILE */
+/* MOBILE GALLERY */
 
 @media (max-width: 600px) {
     .gallery-section {
@@ -351,8 +299,6 @@ h1 {
         margin-bottom: 30px;
     }
 }
- 
-
 
 /* =========================
    HOMEPAGE
@@ -402,22 +348,13 @@ h1 {
     min-height: 300px;
     padding: 45px;
     overflow: hidden;
-
     text-decoration: none;
     color: #f5f5f5;
-
-    background: linear-gradient(
-        145deg,
-        #292940,
-        #1b1b29
-    );
-
+    background: linear-gradient(145deg, #292940, #1b1b29);
     border: 1px solid #38384e;
     border-radius: 20px;
-
     transition: border-color 0.25s ease;
 }
-
 
 .home-card-content {
     position: relative;
@@ -467,7 +404,6 @@ h1 {
 /* HOMEPAGE MOBILE */
 
 @media (max-width: 650px) {
-
     .home-page {
         padding: 40px 20px;
     }
@@ -495,9 +431,8 @@ h1 {
     }
 }
 
-
 /* =========================
-   REPAIRS PAGE
+   REPAIRS CONTENT
 ========================= */
 
 .repairs-content {
@@ -534,7 +469,6 @@ h1 {
     }
 }
 
-
 /* =========================
    MAIN NAVIGATION
 ========================= */
@@ -544,12 +478,10 @@ h1 {
     top: 24px;
     right: 30px;
     z-index: 1000;
-
     display: flex;
     justify-content: flex-end;
     align-items: center;
     gap: 10px;
-
     width: auto;
     margin: 0;
 }
@@ -592,8 +524,6 @@ h1 {
         font-size: 0.8rem;
     }
 }
-
-
 
 /* =========================
    REPAIRS PAGE
@@ -685,7 +615,7 @@ h1 {
     margin-top: 20px;
 }
 
-/* Mobile layout */
+/* MOBILE REPAIRS */
 
 @media (max-width: 700px) {
     .repairs-grid {
@@ -699,4 +629,87 @@ h1 {
     .repairs-header h1 {
         font-size: 2rem;
     }
+}
+
+/* =========================
+   REPAIR INTRO
+========================= */
+
+.repair-intro {
+    max-width: 800px;
+    margin: 0 auto 50px;
+    padding: 30px;
+    text-align: center;
+    background: #171717;
+    border: 1px solid #292929;
+    border-radius: 12px;
+}
+
+.repair-intro h2 {
+    font-size: 1.8rem;
+    margin: 10px 0 20px;
+}
+
+.repair-intro > p:not(.eyebrow):not(.repair-disclaimer) {
+    color: #bbb;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.repair-disclaimer {
+    color: #888;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-top: 22px;
+}
+
+@media (max-width: 700px) {
+    .repair-intro {
+        padding: 22px;
+        margin-bottom: 35px;
+    }
+
+    .repair-intro h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* =========================
+   REPAIR PHOTO LIGHTBOX
+========================= */
+
+.repair-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+    cursor: zoom-out;
+}
+
+.repair-lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.repair-lightbox img {
+    display: block;
+    max-width: 92vw;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 10px 60px rgba(0, 0, 0, 0.7);
+    cursor: default;
+}
+
+.repair-image img {
+    cursor: zoom-in;
 }
